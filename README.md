@@ -47,7 +47,7 @@ or other useful information. In fact, each _X11 Pix Map_ just consists of an arr
 please find a C# example of such an _X11 Pix Map_.
 
 ```
-private static String[] xpm = new String[]
+private static readonly String[] xpm = new String[]
 {
     /* Header */
     "16 16 6 1",
@@ -151,7 +151,25 @@ Such a color section line follows the format shown as next.
   every RGB color implicitly supports the alpha channel.
     - A value of `#0A1122BB` is expanded to `#0A1122BB`.
 
-### Pixmap Editor
+## Example
+
+Code snippet below shows how to create an image using the _X11 Pix Map_ definition from above.
+
+```
+Image image = XPixMapParser.Parse(xpm, XPixMapType.Default);
+```
+
+Following table shows the `XPixMapType` values and their meaning.
+
+| Value        | Meaning                                                                                                 |
+|--------------|---------------------------------------------------------------------------------------------------------|
+| `Default`    | Creating a colored image is tried.                                                                      |
+| `BestFit`    | Creating an image using first valid color is tried (search order: first `c`, then `g` and finally `m`). |
+| `Colored`    | All colors are taken from `c` color definition.                                                         |
+| `Grayscale`  | All colors are taken from `g` (or `g4`) color definition.                                               |
+| `Monochrome` | All colors are taken from `m` color definition.                                                         |
+
+## Editor
 
 An editor is also part of this project. This editor is able to create images from _X11 Pix Maps_ 
 and vice versa. See below for an example.
@@ -163,7 +181,7 @@ is transferred to the right using button `[>>]`.
 
 The other way round, to create an _X11 Pix Map_ from an existing image file, it is possible to 
 open it using the context menu of the right panel (the _Image View_). After that button `[<<]` is 
-pressed to convert it into its _X11 Pix Map_ version.
+clicked to convert it into its _X11 Pix Map_ version.
 
 #### Text Editor
 
