@@ -15,7 +15,8 @@
     <PackageReleaseNotes>Initial draft.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageTags>xpixmap; x11 pix map; images; converter</PackageTags>
+    <PackageTags>xpixmap; x11 pix map; pix map; pixmap; image; images; converter; image converter;</PackageTags>
+    <PackageProjectUrl>https://github.com/akesseler/xpixmapper</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
